@@ -6,7 +6,8 @@
 
 CocosSharp可以从NuGet下载pcl版本或是平台专属版本，源码可以从github上下载。
 
-本教程源码可以在 https://github.com/mono/cocos-sharp-samples/blob/master/GoneBananas下载
+本教程源码可以在 https://github.com/mono/cocos-sharp-samples/blob/master/GoneBananas      
+下载
 游戏概况
 
 我们今天要创作的游戏叫做抓捕香蕉，目的是挪动小猴子去抓捕最多的香蕉拍。下面是完成后的截图。
