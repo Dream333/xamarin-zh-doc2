@@ -1,4 +1,4 @@
-CocosSharp 抓捕香蕉游戏开发指南
+#CocosSharp 抓捕香蕉游戏开发指南
 
 本教程会告诉您怎么用CocosSharp 去开发一款游戏，从最开始设置一个项目到一个完整的游戏。 您可以学到怎么使用不同的CocosSharp内容，类似：精灵，动作，图层，视差，量子系统，场景以及物理。在这个教程完成后您就完成了您就完成您的第一个CocosSharp游戏。
 
@@ -169,4 +169,62 @@ CCScene scene = GameStartLayer.GameStartLayerScene(mainWindow);
 
 **CocosSharp使用场景，通过CCScene类来实现，使用场景可以管理不同部分的游戏逻辑。每个场景随后包含不同的层（layer）来为那个场景展示ui。每个层都要对返回它的父场景负责。像这个游戏我们创建了三个层**
 
-GameStartLayer-一个开始屏幕，点击这个层会
+GameStartLayer-一个开始介绍屏幕，点击这个
+GameLayer-真正的游戏界面
+GameOverLayer-游戏结束界面
+
+添加一个类，加上下面的代码来实现GameStartLayer
+
+```csharp
+public class GameStartLayer : CCLayerColor
+{
+    public GameStartLayer () : base ()
+    {
+        var touchListener = new CCEventListenerTouchAllAtOnce ();
+        touchListener.OnTouchesEnded = (touches, ccevent) => Window.DefaultDirector.ReplaceScene (GameLayer.GameScene (Window));
+
+        AddEventListener (touchListener, this);
+
+        Color = CCColor3B.Black;
+        Opacity = 255;
+    }
+
+    protected override void AddedToScene ()
+    {
+        base.AddedToScene ();
+
+        Scene.SceneResolutionPolicy = CCSceneResolutionPolicy.ShowAll;
+
+        var label = new CCLabelTtf ("Tap Screen to Go Bananas!", "arial", 22) {
+            Position = VisibleBoundsWorldspace.Center,
+            Color = CCColor3B.Green,
+            HorizontalAlignment = CCTextAlignment.Center,
+            VerticalAlignment = CCVerticalTextAlignment.Center,
+            AnchorPoint = CCPoint.AnchorMiddle,
+            Dimensions = ContentSize
+        };
+
+        AddChild (label);
+    }
+
+    public static CCScene GameStartLayerScene (CCWindow mainWindow)
+    {
+        var scene = new CCScene (mainWindow);
+        var layer = new GameStartLayer ();
+
+        scene.AddChild (layer);
+
+        return scene;
+    }
+}
+```
+我们使用的是CCLayerColor作为基类所以我们不能对这个layer（层）的背景颜色进行更改。这段代码展示了一个label和一个到GameLayer的事件如果玩家点击了屏幕。label用的arial字体在font文件夹里包含在我们直接拷贝进项目Content文件夹中。
+
+下面是运行后的截图
+![GoneBananas](pic/GameStart.png?raw=true)
+
+#过度到GameLayer场景
+调用Window.DefaultDirector.ReplaceScene，这个方法需要一个scene（场景）来过渡到另外一个场景 。在这个游戏中我们是这样使用的
+```csharp
+Window.DefaultDirector.ReplaceScene (GameLayer.GameScene (Window));
+```
