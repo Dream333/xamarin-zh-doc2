@@ -106,9 +106,7 @@ namespace GoneBananas
 
 在GoneBananasApplicationDelegate里面我们把application.ContentRootDirectory（内容根目录）给设置成 "Content", 也就是一个文件夹的名字里面包含一些类似字体，图片和声音的文件。 这个文件夹以及里面的子文件夹都可以从github上下载。接下来把这个文件夹分别拷贝到ios和安卓的项目目录底下。（安卓应该把这个文件夹给放到Assets里）。
 
-# CCApplication 
-
-# 类
+# CCApplication类
 
 **这个类主要工作是启动游戏，这块是这个项目中唯一一处要为不同平台写一份代码的地方。**
 
@@ -228,3 +226,77 @@ public class GameStartLayer : CCLayerColor
 ```csharp
 Window.DefaultDirector.ReplaceScene (GameLayer.GameScene (Window));
 ```
+#实现GameLayer场景
+也许你猜到了，我们也需要先创建一个GameLayer类继承于CCLayerColor， 但是这次我们有很多变量需要我们提前创建并且要在这个教程中使用它们，复制下面的代码来创建他们吧！
+```csharp
+public class GameLayer : CCLayerColor
+{
+    const float MONKEY_SPEED = 350.0f;
+    const float GAME_DURATION = 60.0f; // game ends after 60 seconds or when the monkey hits a ball, whichever comes first
+
+    // point to meter ratio for physics
+    const int PTM_RATIO = 32;
+
+    float elapsedTime;
+    CCSprite monkey;
+    List<CCSprite> visibleBananas;
+    List<CCSprite> hitBananas;
+
+    // monkey walking animation
+    CCAnimation walkAnim;
+    CCRepeatForever walkRepeat;
+    CCCallFuncN walkAnimStop = new CCCallFuncN (node => node.StopAllActions ());
+
+    // background sprite
+    CCSprite grass;
+
+    // particles
+    CCParticleSun sun;
+
+    // circle layered behind sun
+    CCDrawNode circleNode;
+
+    // parallax node for clouds
+    CCParallaxNode parallaxClouds;
+
+    // define our banana rotation action
+    CCRotateBy rotateBanana = new CCRotateBy (0.8f, 360);
+
+    // define our completion action to remove the banana once it hits the bottom of the screen
+    CCCallFuncN moveBananaComplete = new CCCallFuncN (node => node.RemoveFromParent ());
+
+   // ...
+}
+```
+
+#添加背景精灵（sprite)
+精灵，用一个CCSprite实例来代表。通过AddChild方法加入到这个场景节点（node）层次结构中。
+这个背景精灵是通过content文件夹中的一个文件加载的。加入下面的这些代码来创建一个背景精灵。
+```csharp
+void AddGrass ()
+{
+    grass = new CCSprite ("grass");
+    AddChild (grass);
+}
+```
+#创建香蕉精灵
+每个掉下来得香蕉都是由一个从图片创建的精灵实例代表。香蕉的图片是在一个sprite sheet中存储。sprite sheet是一个把几个图片包含在一起的图片格式，为了能让这些图片高效率的加载。有一个plist文件告诉程序哪些特定图片在sprite sheet的位置。
+
+```csharp
+CCSprite AddBanana ()
+{
+    var spriteSheet = new CCSpriteSheet ("animations/monkey.plist");
+    var banana = new CCSprite (spriteSheet.Frames.Find ((x) => x.TextureFilename.StartsWith ("Banana")));
+
+    var p = GetRandomPosition (banana.ContentSize);
+    banana.Position = p;
+    banana.Scale = 0.5f;
+
+    AddChild (banana);
+
+    //TODO: animate banana falling
+
+    return banana;
+}
+```
+这段代码添加了一个精灵在一个屏幕上方随机的x位置。我们接下来看一下怎么创建从上方落下来得动画。
