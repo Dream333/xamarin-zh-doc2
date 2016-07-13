@@ -157,7 +157,7 @@ CallButton.TouchUpInside += (object sender, EventArgs e) => {
 ```
 19. 最终把这段代码加到ViewController里面。
 ```csharp
-ublic override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
+public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
   {
      base.PrepareForSegue (segue, sender);
 
