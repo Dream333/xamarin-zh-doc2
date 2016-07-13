@@ -16,33 +16,47 @@
 
 ##攻略 - 使用Segues导航
 
-1. 使用Xamarin Studio来打开Phoneword代码。![phoneword代码](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/01New.png)
+1. 使用Xamarin Studio来打开Phoneword代码。
+![phoneword代码](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/01New.png)
 
-2. 我们先来修改用户界面。使用*Solution Pad*来打开*Main.storyboard* 。![storyboard](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/02New.png)
+2. 我们先来修改用户界面。使用*Solution Pad*来打开*Main.storyboard* 。
+![storyboard](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/02New.png)
 
-3. 接下来我们从*Toolbox*里面脱出一个*Navigation Controller(导航控制器)*。你需要放小才能看见全部的设计空间。![navigation](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/03New.png)
+3. 接下来我们从*Toolbox*里面脱出一个*Navigation Controller(导航控制器)*。你需要放小才能看见全部的设计空间。
+![navigation](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/03New.png)
 
-4. 把*Sourceless Segue*(那个灰色的箭头现在在Phoneword场景左侧）给拖到Navigation Controller的左侧， 改变程序起点。![change Segue](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/04New.png)
+4. 把*Sourceless Segue*(那个灰色的箭头现在在Phoneword场景左侧）给拖到Navigation Controller的左侧， 改变程序起点。
+![change Segue](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/04New.png)
 
-5. 点击 *Root View Controller* 的底部黑条， 然后按*Delete*键，从设计空间中删除。然后，把*Phoneword*场景拖到*Navigation Controller*旁边。![delete scene](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/05New.png)
+5. 点击 *Root View Controller* 的底部黑条， 然后按*Delete*键，从设计空间中删除。然后，把*Phoneword*场景拖到*Navigation Controller*旁边。
+![delete scene](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/05New.png)
 
-6. 接下来，我们把*Navigation Controller*的*Root View Controller*设为 *Phoneword*的*View Controller*. 选择*Navigation Controller*，按下CTRL键,一个蓝线应该会出现。然后，继续按着CTRL键, 鼠标从*Navigation Controller*拖动到*Phoneword*场景然后松开。这个叫做”Ctrl-dragging".![delete scene](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/06.png)
+6. 接下来，我们把*Navigation Controller*的*Root View Controller*设为 *Phoneword*的*View Controller*. 选择*Navigation Controller*，按下CTRL键,一个蓝线应该会出现。然后，继续按着CTRL键, 鼠标从*Navigation Controller*拖动到*Phoneword*场景然后松开。这个叫做”Ctrl-dragging".
+![delete scene](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/06.png)
 
 7. 在跳出的框里，选择*Root*:
 ![root](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/07New.png)
 这个*ViewController*现在是*Navigation Controller*的*Root View Controller*, 也就是根视图控制器。
 ![change root](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/08.png)
 
-8. 双击Phoneword 页面的导航栏，把名字给改成“Phoneword".![change name](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/09.png)
+8. 双击Phoneword 页面的导航栏，把名字给改成“Phoneword".
+![change name](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/09.png)
 
-9. 从Toolbox里面拖动一个Button(按钮)，放在Call Button底下，把它改改成和Call Button 一样的宽度。![change name](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/10New.png)
-10. 在Properties Pad里，把Name给成CallHistoryButton然后把Title改成”Call History“。![history button](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/11New.png)
+9. 从Toolbox里面拖动一个Button(按钮)，放在Call Button底下，把它改改成和Call Button 一样的宽度。
+![change name](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/10New.png)
+
+10. 在Properties Pad里，把Name给成CallHistoryButton然后把Title改成”Call History“。
+![history button](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/11New.png)
+
 11. 然后，从Toolbox里面，拖出一个 Table View Controller 到设计空间里面。
 ![table view controller](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/12New.png)
+
 12. 点击Table View Controller 底部黑条来选择。在Properies Pad里面，改变 Table View Controller 的class 到 CallHistoryController然后按下Enter。
 ![name class](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/13New.png)
+
 iOS 设计器将会生成一个后台的类叫做CallHistoryController来管理这个页面的内容视图等级。 CallHistoryController.cs 文件会在Solution Pad内出现。
 ![name class](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/14New.png)
+
 13. 双击CallHistoryController.cs, 换成下面的代码。
 ```csharp
 using System;
@@ -98,17 +112,19 @@ namespace Phoneword_iOS
 ```
 
 14. 创建一个Segue(跳转)连接Phoneword 场景和 Call History
-场景。 选择上Call Button， Ctrl拖动到Call History场景。![Callbutton](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/15.png)
+场景。 选择上Call Button， Ctrl拖动到Call History场景。
+![Callbutton](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/15.png)
 在跳出窗口里面选择Show。
 ![segue](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/16New.png)
 iOS设计器会创建一个Segue在两个场景之间。
 ![segue](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/17New.png)
-15. 接下来，我们选中Table View Controller. 然后把Title改成Call History。![CallHistory](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/18New.png
-)
+
+15. 接下来，我们选中Table View Controller. 然后把Title改成Call History。
+![CallHistory](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/hello,_iOS_multiscreen_quickstart/Images/18New.png)
+
 16. 如果我们现在运行程序，Call History Button 会打开 Call History 页面， 但是Table View将会是空的，因为我们还没有加入代码来记录电话号码。 那我们来加入那个功能吧。
 
 首先我们需要一个地方来存储打过的号码。 我们将会把它们以一个List<string>存到PhoneNumbers里。我们需要把
-
 ```csharp
 using System.Collections.Generic;
 ```
