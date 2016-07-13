@@ -12,7 +12,7 @@ CocosSharp可以从NuGet下载pcl版本或是平台专属版本，源码可以�
 
 我们今天要创作的游戏叫做抓捕香蕉，目的是挪动小猴子去抓捕最多的香蕉拍。下面是完成后的截图。
 
-![GoneBananas](pic/finsih_screen.jpg?raw=true)
+![GoneBananas](https://raw.githubusercontent.com/jiujiu1123/mono-xamarin-_chinese_doc/master/Cocossharp/Cocossharp_%20GoneBananas/pic/finsih_screen.jpg)
 
 我们这次会为安卓和iOS开发这款游戏，但是CocosSharp支持的平台不限于这些，请到官方wiki上查看完整支持列表。
 
@@ -221,7 +221,8 @@ public class GameStartLayer : CCLayerColor
 我们使用的是CCLayerColor作为基类所以我们不能对这个layer（层）的背景颜色进行更改。这段代码展示了一个label和一个到GameLayer的事件如果玩家点击了屏幕。label用的arial字体在font文件夹里包含在我们直接拷贝进项目Content文件夹中。
 
 下面是运行后的截图
-![GoneBananas](pic/GameStart.png?raw=true)
+
+![GoneBananas](https://raw.githubusercontent.com/jiujiu1123/mono-xamarin-_chinese_doc/master/Cocossharp/Cocossharp_%20GoneBananas/pic/GameStart.png)
 
 #过度到GameLayer场景
 调用Window.DefaultDirector.ReplaceScene，这个方法需要一个scene（场景）来过渡到另外一个场景 。在这个游戏中我们是这样使用的
