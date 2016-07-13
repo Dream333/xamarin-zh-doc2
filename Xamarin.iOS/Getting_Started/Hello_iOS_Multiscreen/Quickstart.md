@@ -1,7 +1,7 @@
 #Hello, iOS 多屏应用
 >在这个2个部分的教程中，我们扩展前面创建的Phoneword程序，加入第二个页面。并且， 我们会介绍模型（Model）、视图（View）和控制器（Controller)设计模式，实现我们第一个iOS导航，和形成一个更深的iOS应用结构和功能的理解。
 
-使用这个连接来下载Phoneword程序：
+使用这个连接来下载Phoneword程序：https://developer.xamarin.com/samples/monotouch/Hello_iOS/
 
 ##Hello.iOS 多屏应用 快速入门
 
