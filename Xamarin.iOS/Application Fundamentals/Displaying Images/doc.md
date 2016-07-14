@@ -43,6 +43,6 @@ Asset(资源) Catalog(目录) 包含所有图片版本，支持各种个样的�
 
 当使用代码访问你的Image Set, 你需要使用UIImage的FromBundle静态方法。
 
-`MonkeyImage.Image = UIImage.FromBundle ("PurpleMonkey");`
+```MonkeyImage.Image = UIImage.FromBundle ("PurpleMonkey");```
 
 >如果你的图片显示不出来，确定你使用了正确的名字（Image Set的，不是父Asset Catalog名）Png文件可以不用使用.png文件后缀，但是其他类似jpg必须得使用 (PurpleMonkey.jpg)
