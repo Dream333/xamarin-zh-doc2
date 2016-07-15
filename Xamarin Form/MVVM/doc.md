@@ -48,7 +48,7 @@ BindingContext 是一个很特殊的属性；它会被所有子元素继承。�
 
 这是一个为一个时钟设计的数据模型拥有只有一个属性dateTime。 这个数据模型每一秒更新一次dateTime属性。
 
-```xml
+```csharp
 using System;
 using System.ComponentModel;
 using Xamarin.Forms;
