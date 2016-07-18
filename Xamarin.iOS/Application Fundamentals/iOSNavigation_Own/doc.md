@@ -32,9 +32,13 @@ Navigation Controller 使用的是一个Stack（伐）来存储用户的ViewCont
 一般来讲，我们是在Appdelegate 文件里，创建一个Navigation Controller 作为程序的根View Controller，并且把第一个子View Controller给传入进传入进去。
 
 ```csharp
-public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions){
-Window = new UIWindow (UIScreen.MainScreen.Bounds);var navigationController = new UINavigationController(new rootViewController());Window.RootViewController = navigationController; Window.MakeKeyAndVisible(); 
-return true;}
+public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+{
+Window = new UIWindow (UIScreen.MainScreen.Bounds);
+var navigationController = new UINavigationController(new rootViewController());
+Window.RootViewController = navigationController; Window.MakeKeyAndVisible(); 
+return true;
+}
 ```
 
 ### 往前导航，显示一个新View Controller
@@ -69,15 +73,19 @@ this.NavigationController.PopToRootViewController(animated:true);
 或者回到一个指定的View Controller
 
 ```
-this.NavigationController.PopToViewController(viewController,animated:true);
+this.NavigationController.PopToViewController(
+viewController,animated:true);
 ```
 
 ###其他方法
 Navigation Controller还有其他的一些相对高级的一些的方法在下面列出。
 
 ```csharp
-public class UINavigationController {UIViewController TopViewController { get; } UIViewController VisibleViewController { get; } UIViewController[] ViewControllers { get; set; }UIViewController[] PopToRootViewController(bool animated); 
-void SetViewControllers(UIViewController[] controllers, bool animated);}
+public class UINavigationController {
+UIViewController TopViewController { get; } UIViewController VisibleViewController { get; } UIViewController[] ViewControllers { get; set; }
+UIViewController[] PopToRootViewController(bool animated); 
+void SetViewControllers(UIViewController[] controllers, bool animated);
+}
 ```
 
 ###使用NavigationItem来操控导航栏
@@ -90,7 +98,7 @@ NavigationItem.LeftBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Can
 
 ```
 具体效果请看下图，注意，如果设置了左侧的按钮，系统的返回键就消失了。
-![](/Users/peterzhong/Desktop/Simulator Screen Shot 18 Jul 2016, 9.05.40 PM.png)
+![](https://raw.githubusercontent.com/jiujiu1123/mono-xamarin-_chinese_doc/master/Xamarin.iOS/Application%20Fundamentals/iOSNavigation_Own/Pic/NavigationItem.png)
 BarItem也是可以自定义，放自己的图片以及文字。
 
 这些属性可以藏住导航栏
