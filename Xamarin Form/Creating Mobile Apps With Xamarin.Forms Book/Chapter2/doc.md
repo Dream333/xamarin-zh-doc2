@@ -73,3 +73,47 @@ Xamarin Studio有一个相似的问题。
 在默认选项里，所有平台都为手机方向做了调整。把手机转成横屏，你会看见文字调整到新的中心。
 
 这个应用不仅可以在设备或者虚拟机上运行，也可以部署到其他设备。它和其他应用在设备或虚拟机上一起显示，也可以从那里直接运行。 如果你不喜欢应用图标或名称，你可以单独在每个平台上改变。
+
+##了解Form的文件
+
+显然，这个被Xamarin.Forms模板创建的程序是非常简单的，所以这是一个学习生成代码的相互联系和工作方式的好机会。
+
+我们先来看看负责显示我们在屏幕上看见的文字的代码。这是一个App类在**Hello**项目里。在一个Visual Studio创建的文件里，App类是定义在 App.cs里，但是在Xamarin Studio里，这个文件会是Hello.CS。如果项目模板从本书出版时没有改变太多，它估计会长的像这个。
+
+```csharp
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+public class App: Application {
+ public App() {
+  // The root page of your application
+  MainPage = new ContentPage {
+   Content = new StackLayout {
+    VerticalOptions = LayoutOptions.Center,
+     Children = {
+      new Label {
+       HorizontalTextAlignment = TextAlignment.Center,
+        Text = "Welcome to Xamarin Forms!"
+      };
+     }
+   }
+  }
+ }
+ protected override void OnStart() {
+  // Handle when your app starts
+ }
+ protected override void OnSleep() {
+  // Handle when your app sleeps
+ }
+ protected override void OnResume() {
+     
+ }
+  // Handle when your app resumes
+}
+
+```
+
+注意命名空间的名字和项目名字是一样的。这个App类是定义为Public， 并且从Xamarin.Forms的`Application`类继承。这个构造函数真的只有一个责任：把一个`Page`类的对象给设置为`Application`类的`MainPage`属性。
